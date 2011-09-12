@@ -1,4 +1,5 @@
 require './application'
+require 'rack/contrib'
 Api2ch::Application.initialize!
 
 # Development middlewares
@@ -10,6 +11,12 @@ if Api2ch::Application.env == 'development'
 
   # Serve assets from /public
   use Rack::Static, :urls => ["/javascripts"], :root => Api2ch::Application.root(:public)
+end
+
+use Rack::ResponseHeaders do |headers|
+  headers['Access-Control-Allow-Origin'] = '*'
+  headers['Access-Control-Allow-Methods'] = '*'
+  headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version'
 end
 
 # Running thin :

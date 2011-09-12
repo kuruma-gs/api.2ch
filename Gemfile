@@ -1,6 +1,8 @@
 source :rubygems
 
 gem 'cramp'
+gem 'rack-contrib', :git=>"https://github.com/rack/rack-contrib.git"
+
 
 # Async webserver for running a cramp application
 gem 'thin'

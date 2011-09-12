@@ -6,7 +6,7 @@ class ResAction < Cramp::Action
   use_fiber_pool
 
   def respond_with
-    [200, {'Content-Type' => 'application/json'}]
+    [200, {'Content-Type' => 'application/json; charset=utf-8','Access-Control-Allow-Origin'=>'*','Access-Control-Allow-Methods'=>'*','Access-Control-Allow-Headers'=>'X-Requested-With,X-Prototype-Version'}]
   end
 
   def start

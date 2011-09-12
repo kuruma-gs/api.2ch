@@ -2,4 +2,5 @@
 HttpRouter.new do
   add('/q').to(ThreAction)
   add('/t').to(ResAction)
+  add('/fake').to(FakeAction)
 end

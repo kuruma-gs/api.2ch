@@ -16,7 +16,7 @@ class Res
   end
 
   def to_json
-    "{n:#{@n}, name:'#{@name}', at:'#{@at}', body:'#{@body}'}"
+    %Q{{"n":#{@n}, "name":"#{@name.to_json}", "at":"#{@at.to_json}", "body":"#{@body.to_json}"}}
   end
 
 end
