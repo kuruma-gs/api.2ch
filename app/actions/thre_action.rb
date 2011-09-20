@@ -10,6 +10,7 @@ class ThreAction < Cramp::Action
   end
 
   def start
+    finish if params[:q].blank?
     http = EventMachine::HttpRequest.new("http://find.2ch.net/?STR=#{params[:q]}&TYPE=TITLE&x=0&y=0&BBS=ALL&ENCODING=utf-8&COUNT=50").get
     http.callback do
       h = http.response.gsub(/<\!--.+-->/,'')       # 文字コードを抜く

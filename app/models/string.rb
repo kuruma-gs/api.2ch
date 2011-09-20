@@ -1,7 +1,7 @@
 class String
 
-  def to_json
-    self.gsub('"','\"')
+  def blank?
+    self==""
   end
 
 end

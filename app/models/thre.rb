@@ -9,8 +9,8 @@ class Thre
     @body   = body
   end
 
-  def to_json
-    %Q{{"number":#{@number}, "name":"#{@name.to_json}", "board":"#{@board.to_json}", "body":"#{@body.to_json}"}}
+  def to_json(*args)
+    {number: @number, name: @name, board: @board, body: @body}.to_json(*args)
   end
 
 end

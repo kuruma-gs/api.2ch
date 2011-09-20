@@ -15,8 +15,8 @@ class Res
     tap{@body = str}
   end
 
-  def to_json
-    %Q{{"n":#{@n}, "name":"#{@name.to_json}", "at":"#{@at.to_json}", "body":"#{@body.to_json}"}}
+  def to_json(*args)
+    {n: @n, name: @name, at: @at, body: @body}.to_json(*args)
   end
 
 end

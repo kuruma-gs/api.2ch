@@ -1,5 +1,6 @@
 require "rubygems"
 require "bundler"
+require 'json'
 
 module Api2ch
   class Application

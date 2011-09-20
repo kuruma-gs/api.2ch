@@ -10,6 +10,8 @@ class ResAction < Cramp::Action
   end
 
   def start
+    puts params
+    finish if params[:url].blank?
     http = EventMachine::HttpRequest.new(params[:url]).get
     http.callback do
       parser = Nokogiri::HTML.parse(http.response,nil,'CP932')
