@@ -15,9 +15,9 @@ class ResAction < Cramp::Action
     http = EventMachine::HttpRequest.new(params[:url]).get
     http.callback do
       parser = Nokogiri::HTML.parse(http.response,nil,'CP932')
-      parser.css('dl.thread').each do |dl|
-        render dl.css('dt').inject([]){|a,dt| a<<Res.new(dt.content,dt.next.content); a }.to_json
-      end
+      render({
+        :name=>parser.css('h1').first.content,
+        :reses=>parser.css('dl.thread').first.css('dt').inject([]){|a,dt| a<<Res.new(dt.content,dt.next.content.gsub("  ","<br />").strip); a}}.to_json)
       finish
     end
   end
